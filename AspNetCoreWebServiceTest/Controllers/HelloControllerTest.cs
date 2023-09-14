@@ -19,12 +19,12 @@ namespace AspNetCoreWebServiceTest.Controllers
         [InlineData("AWS CodeStar", "Hello AWS CodeStar!")]
         public void InputParamGetResponseTest(string inputValue, string expectedOutput)
         {
-            //HelloController controller = new HelloController();
-            //var response = controller.Get(inputValue).Value as Response;
-            //Assert.Equal(expectedOutput, response.Output);
             HelloController controller = new HelloController();
-            var response = controller.Get().Value as Response;
-            Assert.Equal("Hello World!!!", response.output);
+            var response = controller.Get(inputValue).Value as Response;
+            Assert.Equal(expectedOutput, response.Output);
+            // HelloController controller = new HelloController();
+            // var response = controller.Get().Value as Response;
+            // Assert.Equal("Hello World!!!", response.output);
         }
 
         [Fact]
