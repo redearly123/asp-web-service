@@ -1,6 +1,7 @@
-from ubuntu:latest
+from ubuntu:18.04
 
 WORKDIR backend-svr
+
 
 RUN apt-get update && \
     apt-get install -y software-properties-common && \
@@ -17,7 +18,9 @@ RUN apt install apt-transport-https -y
 
 RUN apt-get update
 
-RUN apt install libssl1.1 libicu63
+RUN wget http://ftp.us.debian.org/debian/pool/main/i/icu/libicu63_63.1-6+deb10u3_amd64.deb
+
+RUN sudo dpkg -i libicu57_57.1-6+deb9u4_amd64.deb
 
 RUN apt install dotnet-sdk-3.1 -y
 
