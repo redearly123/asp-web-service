@@ -1,7 +1,6 @@
-from ubuntu:18.04
+from ubuntu:latest
 
 WORKDIR backend-svr
-
 
 RUN apt-get update && \
     apt-get install -y software-properties-common && \
@@ -18,11 +17,7 @@ RUN apt install apt-transport-https -y
 
 RUN apt-get update
 
-RUN wget http://ftp.us.debian.org/debian/pool/main/i/icu/libicu-dev_63.1-6+deb10u3_amd64.deb
-
-RUN dpkg -i libicu-dev_63.1-6+deb10u3_amd64.deb
-
-RUN apt install dotnet-sdk-3.1 -y
+RUN apt install dotnet-sdk-3.0 -y
 
 COPY ./ ./
 
@@ -33,4 +28,3 @@ RUN dotnet build
 EXPOSE 5000:5000
 
 CMD [ "dotnet", "run" ]
-
